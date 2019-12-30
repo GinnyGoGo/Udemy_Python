@@ -1,0 +1,10 @@
+cd ~/Study/Udemy_Python
+git pull 
+make some change locally XXXX
+git status
+git add file1 file2
+or git add . #all files
+git commit -m"message about the changes you made"
+git push origin master #push changes to github
+
+
