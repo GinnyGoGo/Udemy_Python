@@ -2,7 +2,7 @@
 # (It doesn't have the error-checking process.)
 
 p1 = input("Player 1: rock, paper, or scissors ")
-print("*** NO CHEATING ***" * 3)
+print("*** NO CHEATING ***\n" * 3)
 p2 = input("Player 2: rock, paper, or scissors ")
  
 if p1 == p2:
@@ -23,7 +23,7 @@ else:
 
 from random import randint
 
-player = input("Player, make your move: ").lower()
+player = input("Player, make your move: rock, paper, or scissors ").lower()
 rand_num = randint(0,2)
 if rand_num == 0:
 	computer = "rock"
@@ -70,10 +70,10 @@ computer_wins = 0
 winning_score = 3 #looping until a specific number of wins occur in one side
 
 while player_wins < winning_score and computer_wins < winning_score:
-    print(f"Player Score: {player_wins} Computer Score: {computer_wins}")
+    print(f"Player Score: {player_wins} Computer Score: {computer_wins}\n")
     print("...rock...")
     print("...paper...")
-    print("...scissors...")
+    print("...scissors...\n")
 
     player = input("(Enter your choice): ").lower()
     if player == "quit" or player == "q": # Add in a break for player
