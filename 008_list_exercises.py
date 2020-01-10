@@ -18,6 +18,7 @@
 
 
 # 1. Accessing all values in a list
+
 numbers = [1,2,3,4]
 i = 0
 
@@ -26,6 +27,7 @@ while i < len(numbers):
     i += 1
 
 # 2. List Comprehension v.s. Looping
+
 # List
 nums = [1,2,3]
 double_num = [x * 10 for x in nums] # no need to state x in adwance
@@ -40,7 +42,9 @@ for x in nums:
     double_num.append(n) # !
 print(double_num) # [2,4,6]
 
+
 # 3. Conditional looping
+
 numbers = [1,2,3,4,5]
 [num * 2 if num % 2 == 0 else num / 2 for num in numbers]
 
@@ -48,10 +52,14 @@ with_vowels = "This is so much fun!"
 ' '.join(char for char in with_vowels if char not in "aeiou")
 # "Ths s s mch fn!"
 
+
 # 4. create a variable which contains a list with all the numbers that are divisible by 12.
+
 answer = [val for val in range(1,101) if val % 12 == 0]
 
+
 # 5. Nested lists
+
 nest_list = [[1,2,3],[4,5,6],[7,8,9]]
 
 for n in nest_list:
@@ -61,6 +69,27 @@ for n in nest_list:
 # 2
 # ...
 
+
 # 6. Nested lists + repeat
+
 [[num for num in range(1,4)] for val in range(1,4)]
 # [[1,2,3],[1,2,3],[1,2,3]]
+
+
+# 7. List manipulation
+# list_manipulation([1,2,3], "remove", "end") # 3
+# list_manipulation([1,2,3], "remove", "beginning") #  1
+# list_manipulation([1,2,3], "add", "beginning", 20) #  [20,1,2,3]
+# list_manipulation([1,2,3], "add", "end", 30) #  [1,2,3,30]
+
+def list_manipulation(collection, command, location, value=None):
+    if(command == "remove" and location == "end"):
+        return collection.pop() # .pop
+    elif(command == "remove" and location == "beginning"):
+        return collection.pop(0)
+    elif(command == "add" and location == "beginning"):
+        collection.insert(0,value) # .insert
+        return collection
+    elif(command == "add" and location == "end"):
+        collection.append(value) # .append
+        return collection
