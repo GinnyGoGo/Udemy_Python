@@ -3,6 +3,19 @@
 # Sets are unordered collection of unique values
 # Cannot access items using in a set by index
 
+# Tuple unpacking
+
+def sum_all_values(*args):
+    # there's a built in sum function - we'll see more later!
+    return sum(args)
+
+sum_all_values([1, 2, 3, 4]) # nope...
+sum_all_values((1, 2, 3, 4)) # this does not work either...
+
+sum_all_values(*[1, 2, 3, 4]) # 10
+sum_all_values(*(1, 2, 3, 4)) # 10
+
+
 # 1 - Create a variable called numbers which is a tuple with the the values 1, 2, 3 and 4 inside.
 numbers = (1,2,3,4)
 

@@ -1,3 +1,10 @@
+# Parameter Ordering
+# 1. parameters
+# 2. *args
+# 3. default parameters
+# 4. **kwargs
+
+
 # Defining Functions
 
 def happy_birthday(): # Define the function
@@ -73,6 +80,37 @@ def say_hello():
 say_hello.__doc__ # 'A simple function that returns the string hello'
 
 
+# *args 
+# # gathers remaining arguments as a tuple
+
+def sum_all_values(*args): # *args can be *nums
+    
+    total = 0
+    for val in args: 
+        total += val
+
+    return total
+
+sum_all_values(1, 2, 3) # 6
+
+sum_all_values(1, 2, 3, 4, 5) # 15
+
+
+# **kwargs
+# gathers remaining keyword arguments as a dictionary
+
+def favorite_colors(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}'s favorite color is {value}")
+
+favorite_colors(rusty='green', colt='blue')
+
+# rusty's favorite color is green
+# colt's favorite color is blue
+
+
+
+
 # Ex 1: Talking Animals
 
 def speak(animal="dog"):
@@ -100,3 +138,14 @@ def multiple_letter_count(word):
 
 def freq(collection, term):
     return collection.count(term)
+
+
+#Ex 5: **kwargs
+# Combining words
+
+def combine_words(word,**kwargs):
+    if "prefix" in kwargs:
+        return kwargs["prefix"] + word
+    elif "suffix" in kwargs:
+        return word + kwargs["suffix"]
+    return word

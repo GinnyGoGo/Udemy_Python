@@ -13,6 +13,10 @@ dict_name.items() # for all items
 # Test whether a key is in the dict. or not
 'key_name' in dict_name # answer is True or False
 
+# dict.get()
+# dict.get('first')  will return the value of 'first' if it exists, 
+# otherwise it returns None.  
+
 # dict.pop()  # delete
 
 # dict.copy()
@@ -20,6 +24,17 @@ dict_name.items() # for all items
 # dict.update() # will cover the values in the same key
 
 # {__ : __ for __ in __}  # to iterate over keys and values using .items()
+
+
+# Dictionary unpacking
+
+def display_names(first, second):
+    return f"{first} says hello to {second}"
+
+names = {"first": "Colt", "second": "Rusty"}
+# display_names(names) # nope..
+display_names(**names) # "Colt says hello to Rusty"
+
 
 
 # Ex 1: Concatenation
