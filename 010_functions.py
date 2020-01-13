@@ -104,11 +104,12 @@ def favorite_colors(**kwargs):
         print(f"{key}'s favorite color is {value}")
 
 favorite_colors(rusty='green', colt='blue')
-
 # rusty's favorite color is green
 # colt's favorite color is blue
+ 
 
-
+# *args gathers remaining arguments into a tuple 
+# while **kwargs gathers remaining arguments into a dictionary.
 
 
 # Ex 1: Talking Animals
