@@ -30,6 +30,7 @@ d = {"name": "Ricky"}
 print(get(d, "city"))
 d["city"]
 
+
 # Ex 2: Division 
 def divide(a,b):
     try:

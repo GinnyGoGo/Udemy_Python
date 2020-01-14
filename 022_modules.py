@@ -42,7 +42,6 @@ omg_so_random.shuffle(["apple", "banana", "cherry", "durian"])
 # (method_name can be the function name in that file)
 
 
-
 #== Exerciese ==
 
 # 1. Math
