@@ -20,8 +20,28 @@
 
 # @classmethod
 
+# Inheritance
+# A key feature of OOP is the ability to define a class which inherits from another class (a "base" or "parent" class).
+# In Python, inheritance works by passing the parent class as an argument to the definition of a child class
 
-# Eg 1: Creating a Class
+# super()
+# allows us to call the __init__ function of a parent class
+# def __init__(self, ...):
+# super().__init__(...)
+
+# polymorphism
+# An object can take on many forms
+# application 1: the same class method works in a similar way for different classes。
+# eg: cat.speak()
+#     dog.speak()
+#     human.speak()
+# application 2: the same operation works for different kinds of objects
+# eg: sample_list = [1,2,3]
+#     sample_tuple = (1,2,3)
+#	  sample_string = "awesome"
+
+
+# Eg 1: Creating a Class 
 class Vehicle:
 
     def __init__(self, make, model, year): 
@@ -123,3 +143,114 @@ class User2:
 # user1 = User2("Joe", "Smith", 68)
 # user2 = User2("Blanca", "Lopez", 41)
 # print(User2.display_active_users()) # 4
+
+
+
+#==== Inheritance =====
+
+# Ex 1: 
+
+class Animal:
+	cool = True
+
+	def make_sound(self, sound):
+		print(f"this animal says {sound}")
+
+# Cat class inherits from Animal
+class Cat(Animal):
+	pass
+
+# Make a new cat instance
+blue = Cat()
+
+# Because of inheritance, a Cat has access to:
+blue.make_sound("Meow")
+print(blue.cool)
+
+#blue is both a Cat and Animal (and base object)
+print(isinstance(blue, Cat)) # True
+print(isinstance(blue, Animal)) # True
+print(isinstance(blue, object)) # True
+
+
+# Ex 2: super()
+# Inheritance Example Using Super()
+
+# OUR "MODEL" FOR ANIMAL AND CAT
+# Animal
+# 	species
+# 	name
+
+# Cat
+# 	species
+# 	name
+# 	breed
+# 	favorite_toy
+
+
+class Animal2:
+	def __init__(self, name, species):
+		self.name = name
+		self.species = species
+
+	def __repr__(self):
+		return f"{self.name} is a {self.species}"
+
+	def make_sound(self, sound):
+		print(f"this animal says {sound}")
+
+
+class Cat2(Animal2): # state the parent class
+	def __init__(self, name, breed, toy):
+		# super()
+		super().__init__(name, species="Cat") # Call init on parent class
+		self.breed = breed
+		self.toy = toy
+
+	def play(self):
+		print(f"{self.name} plays with {self.toy}")
+
+
+blue = Cat2("Blue","Scottish Fold", "String")
+blue.play()
+
+
+
+# Ex 3: Magic Methods
+from copy import copy
+class Human:
+	def __init__(self, first, last, age):
+		self.first = first
+		self.last = last
+		self.age = age
+		
+	def __repr__(self):
+		return f"Human named {self.first} {self.last} aged {self.age}"
+
+	def __len__(self):
+		return self.age
+
+	def __add__(self, other):
+		# When you add two humans together...you get a newborn baby Human!
+		if isinstance(other, Human):
+			return Human(first='Newborn', last=self.last, age=0)
+		return "You can't add that!"
+
+	def __mul__(self, other):
+		# When you multiply a Human by an int, you get clones of that Human!
+		if isinstance(other, int):
+			return [copy(self) for i in range(other)]
+			# copy() 
+		return "CANT MULTIPLY!"
+	
+
+
+j = Human("Jenny", "Larsen", 47)
+k = Human("Kevin", "Jones", 49)
+# print(j)
+# print(len(j))
+# triplets = j * 3
+
+# kevin and jessica have triplets!
+triplets = (k + j) * 3
+print(triplets)
