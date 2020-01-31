@@ -13,7 +13,7 @@ def count_up_to(max):
 count_up_to(5) # return a generator object
 
 counter = count_up_to(5) 
-next(counter) # each time value 
+next(counter) # each time output one value 
 
 list(counter) # [1,2,3,4,5]
 
@@ -22,3 +22,23 @@ for num in counter: # get all at one time
 # 1
 # 2
 # ...
+
+
+# Eg: Print day names
+def week():
+    days = [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+    ]
+    for day in days:
+        yield day
+
+days = week()
+next(days)
+
+
